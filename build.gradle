@@ -27,7 +27,7 @@ repositories {
 azurewebapp {
 	subscription = '77473478-7b1d-4345-95f9-5d7f456d8c84'
 	resourceGroup = 'rggs'
-	appName = 'ecowatt'
+	appName = 'ecowatt-api'
 	pricingTier = 'F1'
 	region = 'brazilsouth'
 	runtime {
