@@ -1,3 +1,9 @@
 package br.com.ecowatt_api.dto;
 
-public record AuthDTO(String login, String senha) {}
+import jakarta.validation.constraints.NotEmpty;
+
+public record AuthDTO(
+        @NotEmpty(message = "O campo login é obrigatório")
+        String login,
+        @NotEmpty(message = "O campo é obrigatório")
+        String senha) {}
