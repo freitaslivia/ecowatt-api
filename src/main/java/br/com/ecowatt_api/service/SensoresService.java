@@ -2,6 +2,7 @@ package br.com.ecowatt_api.service;
 
 import br.com.ecowatt_api.dto.SensoresRequestDTO;
 import br.com.ecowatt_api.dto.SensoresResponseDTO;
+import br.com.ecowatt_api.exception.ErrorException;
 import br.com.ecowatt_api.model.Sensores;
 import br.com.ecowatt_api.model.Usuario;
 import br.com.ecowatt_api.repository.SensoresRepository;
@@ -33,7 +34,7 @@ public class SensoresService {
         saved.setId(null);
 
         Usuario usuario = usuarioRepository.findById(sensoresRequestDto.getUsuarioId())
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+                .orElseThrow(() -> new ErrorException("Usuário não encontrado"));
 
         saved.setUsuario(usuario);
         saved.setDataCriacao(LocalDateTime.now());
@@ -43,25 +44,30 @@ public class SensoresService {
         return modelMapper.map(saved, SensoresResponseDTO.class);
 
     }
-    public SensoresResponseDTO update(SensoresRequestDTO sensoresRequestDto) {
-        Optional<Sensores> sensores = Optional.ofNullable(sensoresRepository.findById(sensoresRequestDto.getUsuarioId())
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado")));
+    public SensoresResponseDTO update(SensoresRequestDTO sensoresRequestDto, Long idSensor) {
+        Usuario usuario = usuarioRepository.findById(sensoresRequestDto.getUsuarioId())
+                .orElseThrow(() -> new ErrorException("Usuário não encontrado"));
 
-        if(sensores.isPresent()){
-            Sensores saved = modelMapper.map(sensoresRequestDto, Sensores.class);
+        Sensores sensores = sensoresRepository.findById(idSensor)
+                .orElseThrow(() -> new ErrorException("Sensor não encontrado"));
 
-            saved.setDataCriacao(sensores.get().getDataCriacao());
+        Long idUsuario = sensores.getUsuario().getId();
+        Long idUsuarioDTO = sensoresRequestDto.getUsuarioId();
 
-            saved.setDataModificacao(LocalDateTime.now());
-
-            sensoresRepository.save(saved);
-
-            return modelMapper.map(saved, SensoresResponseDTO.class);
+        if (!idUsuarioDTO.equals(idUsuario)) {
+            throw new ErrorException("Você não tem permissão para alterar este sensor.");
         }
 
-        return null;
+        Sensores updatedSensor = modelMapper.map(sensoresRequestDto, Sensores.class);
+        updatedSensor.setDataCriacao(sensores.getDataCriacao());
+        updatedSensor.setDataModificacao(LocalDateTime.now());
+
+        sensoresRepository.save(updatedSensor);
+
+        return modelMapper.map(updatedSensor, SensoresResponseDTO.class);
 
     }
+
 
 
 

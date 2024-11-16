@@ -3,6 +3,7 @@ package br.com.ecowatt_api.controller;
 import br.com.ecowatt_api.dto.SensoresRequestDTO;
 import br.com.ecowatt_api.dto.SensoresResponseDTO;
 import br.com.ecowatt_api.model.Sensores;
+import br.com.ecowatt_api.model.Usuario;
 import br.com.ecowatt_api.repository.SensoresRepository;
 import br.com.ecowatt_api.security.SecurityConfigurations;
 import br.com.ecowatt_api.service.SensoresService;
@@ -90,11 +91,12 @@ public class SensoresController {
     @ApiResponse(responseCode = "404", description = "sensor não encontrado")
     @ApiResponse(responseCode = "500", description = "erro no servidor")
     public ResponseEntity<SensoresResponseDTO> update(@PathVariable Long id, @Valid @RequestBody SensoresRequestDTO dtoRequest) {
-        SensoresResponseDTO responseDTO = sensoresService.update(dtoRequest);
+        SensoresResponseDTO responseDTO = sensoresService.update(dtoRequest, id);
         if (responseDTO == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
         }
+
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 
