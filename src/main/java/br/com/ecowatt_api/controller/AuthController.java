@@ -129,6 +129,9 @@ public class AuthController {
         if (!encoder.matches(dto.getSenhaAtual(), usuario.getSenha())) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Senha atual não está correta");
         }
+        if(encoder.matches(dto.getSenhaNova(), usuario.getSenha())){
+            return ResponseEntity.badRequest().body("A nova senha nova não pode ser igual a anterior");
+        }
         if (!dto.getSenhaNova().equals(dto.getSenhaConfirmacao())) {
             return ResponseEntity.badRequest().body("A nova senha e a confirmação de senha devem ser iguais");
         }

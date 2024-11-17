@@ -1,5 +1,6 @@
 package br.com.ecowatt_api.controller;
 
+import br.com.ecowatt_api.dto.DetalheSensorResponseDTO;
 import br.com.ecowatt_api.dto.SensoresRequestDTO;
 import br.com.ecowatt_api.dto.SensoresResponseDTO;
 import br.com.ecowatt_api.model.Sensores;
@@ -73,11 +74,11 @@ public class SensoresController {
     @ApiResponse(responseCode = "200", description = "sensor retornado com sucesso")
     @ApiResponse(responseCode = "204", description = "retorna vazio pois não existe nenhum sensor cadastrado com esse id")
     @ApiResponse(responseCode = "500", description = "erro no servidor")
-    public ResponseEntity<SensoresResponseDTO> read(@PathVariable Long id) {
+    public ResponseEntity<DetalheSensorResponseDTO> read(@PathVariable Long id) {
         Optional<Sensores> sensores = sensoresRepository.findById(id);
         if (sensores.isPresent()) {
             Sensores sensoresGet = sensores.get();
-            SensoresResponseDTO responseDTO =  modelMapper.map(sensoresGet, SensoresResponseDTO.class);
+            DetalheSensorResponseDTO responseDTO =  modelMapper.map(sensoresGet, DetalheSensorResponseDTO.class);
 
             return new ResponseEntity<>(responseDTO, HttpStatus.OK);
         }
@@ -90,11 +91,12 @@ public class SensoresController {
     @ApiResponse(responseCode = "404", description = "sensor não encontrado")
     @ApiResponse(responseCode = "500", description = "erro no servidor")
     public ResponseEntity<SensoresResponseDTO> update(@PathVariable Long id, @Valid @RequestBody SensoresRequestDTO dtoRequest) {
-        SensoresResponseDTO responseDTO = sensoresService.update(dtoRequest);
+        SensoresResponseDTO responseDTO = sensoresService.update(dtoRequest, id);
         if (responseDTO == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
         }
+
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 
