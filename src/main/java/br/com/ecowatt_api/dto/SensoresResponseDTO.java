@@ -12,4 +12,5 @@ public class SensoresResponseDTO{
     private String status;
     private String produtoConectado;
     private String localizacao;
+    private String descricao;
 }
