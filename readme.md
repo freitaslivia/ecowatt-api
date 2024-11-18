@@ -29,6 +29,7 @@ da EcoWatt.
 
 
 - O Que é a EcoWatt?
+  
   A EcoWatt é uma solução completa de automação e monitoramento energético que
   transforma sua residência em um ambiente inteligente e eficiente. Com um sistema
   integrado que monitora, gerencia e otimiza o uso de fontes de energia – solar, eólica e
@@ -37,7 +38,8 @@ da EcoWatt.
   trazendo economia para você.
 
 
-- Funcionalidades e Diferenciais
+- Funcionalidades e Diferenciais:
+    
   A EcoWatt vai além do monitoramento básico. Nosso sistema armazena a energia
   gerada e usa previsões climáticas para otimizar o uso das fontes renováveis. Quando
   necessário, ele alterna automaticamente para a rede elétrica, garantindo um
@@ -51,6 +53,7 @@ da EcoWatt.
 
 
 - Junte-se à Revolução Energética
+  
   Na EcoWatt, nossa missão é promover a inovação, a sustentabilidade e a qualidade de
   vida. Oferecemos uma solução prática para os desafios energéticos atuais, preparando
   sua residência para o futuro. Transforme sua casa em um ambiente inteligente e
@@ -59,12 +62,43 @@ da EcoWatt.
 
 EcoWatt – juntos, construindo um futuro mais sustentável.
 
+---
+## Playlist com os vídeos solicitados
 
+https://www.youtube.com/playlist?list=PLnsC4Y30EcL60TdkFBJ_ukYtVQSY9gz2m
 
+---
+## Integrantes
+:small_blue_diamond:Gabriel Sampaio
+RM 552342		
+<a href="https://www.linkedin.com/in/gabrielsampaiogianini/">Linkedin</a>
+<a href="https://github.com/gabrielsampaiog">Github</a>
+
+:small_blue_diamond:Gabriel Neves
+RM 552244
+<a href="https://www.linkedin.com/in/-gabriel-neves/">Linkedin</a>
+<a href="https://github.com/Neveszera">Github</a>
+
+:small_blue_diamond:Livia Freitas
+RM 99892
+<a href="https://www.linkedin.com/in/l%C3%ADvia-freitas-ferreira/">Linkedin</a>
+<a href="https://github.com/freitaslivia">Github</a>
+
+:small_blue_diamond:Rafael Mendonça
+RM 552422
+<a href="https://www.linkedin.com/in/rafael-henrique-de-mendon%C3%A7a-51263326b/">Linkedin</a>
+<a href="https://github.com/rhmendonca">Github</a>
+
+:small_blue_diamond:Renato Romeu
+RM 551325
+<a href="https://www.linkedin.com/in/renato-russano-706423a3/">Linkedin</a>
+<a href="https://github.com/RenatoRussano">Github</a>
+
+---
 # Documentação ECOWATT API REST
 
 
-> SQL:
+- SQL:
 
 ```sql
    create table ecowatt_sensores (
@@ -153,7 +187,7 @@ Esse token deve ser utilizado para autenticação nos endpoints protegidos. Para
     
     > PUT Sensor`http://localhost:8080/sensores/${id}`
 
-
+---
 ### Cadastro de Usuário
 
 - **URL**:
@@ -198,7 +232,7 @@ usuario criado com sucesso.
 | `201` | Usuário gravado com sucesso |
 
 
-
+-----
 
 ### Login
 
@@ -245,6 +279,7 @@ http://localhost:8080/auth/login
 |:------|:-----------------------------------------------------------------------------------------------------|
 | `200` | Usuário logado com sucesso|
 
+-----
 
 ### Atualização de Senha
 
@@ -283,7 +318,7 @@ Senha alterada com sucesso
 |:------|:-----------------------------------------------------------------------------------------------------|
 | `200` | Senha alterada com sucesso|
 
-
+---
 ### Buscar usuário por ID
 
 - **URL**:
@@ -315,7 +350,7 @@ Senha alterada com sucesso
 |:------|:-----------------------------------------------------------------------------------------------------|
 | `200` | Usuário encontrado com sucesso|
 
-
+-----
 
 ### Deleta usuário por ID
 
@@ -341,6 +376,7 @@ Senha alterada com sucesso
 |:------|:-----------------------------------------------------------------------------------------------------|
 | `200` | Usuário deletado com sucesso|
 
+-----
 
 ### Cadastro de Sensor
 
@@ -396,7 +432,7 @@ http://localhost:8080/sensores
 |:------|:----------------------------|
 | `201` | Sensor gravado com sucesso |
 
-
+-----
 
 ### Atualizar um Sensor
 
@@ -454,7 +490,7 @@ http://localhost:8080/sensores/${id}
 |:------|:----------------------------|
 | `200` | Sensor atualizado com sucesso |
 
-
+-----
 
 ### Buscar sensor por ID
 
@@ -496,6 +532,7 @@ R
 |:------|:-----------------------------------------------------------------------------------------------------|
 | `200` | Sensor encontrado com sucesso|
 
+-----
 
 ### Busca lista de sensor por ID usuário
 
@@ -585,7 +622,7 @@ http://localhost:8080/sensores/all/${usuarioId}
 |:------|:-----------------------------------------------------------------------------------------------------|
 | `200` | Lista de sensores encontrada com sucesso|
 
-
+-----
 
 ### Deleta sensor por ID
 
@@ -604,9 +641,43 @@ http://localhost:8080/sensores/all/${usuarioId}
 |:----------|:-------|:-------------------------------------------|
 | `id`      | `Long` | **Obrigatório**. Deleta um sensor por id |
 
+-----
 
 - **HTTP response status code**:
 
 | HTTP  | Descrição                                                                                            |
 |:------|:-----------------------------------------------------------------------------------------------------|
 | `200` | Sensor deletado com sucesso|
+
+
+### Spring AI - Testar localmente - Envia uma mensagem e a AI retorna com base em um arquivo txt sobre a nossa ideia
+
+- **URL**:
+```http
+ http://localhost:8080/springai
+```
+- **Método**: GET
+- **Descrição**: Envia uma mensagem e a AI retorna com base em um arquivo txt sobre a nossa ideia
+- 
+- **Requisitos**:
+
+  - Só deve ser feito se já tiver autenticado
+  - Deve ter o ollama instalado(https://ollama.com/)
+  - Esse enpoint só funciona com a aplicação rodando locamente(deve ir no diretório do projeto e rodar esse comando: ollama run llama3.2)
+
+- **Exemplos de perguntas para fazer**:
+  - Qual é o objetivo principal da EcoWatt?
+  - Quais os pilares principais do projeto EcoWatt?
+  - Como a EcoWatt prioriza fontes de energia?
+  - Como a EcoWatt prioriza fontes de energia?
+
+| Parâmetro | Tipo   | Descrição                                  |
+|:----------|:-------|:-------------------------------------------|
+| `message`      | `String` | **Obrigatório**. |
+
+
+- **HTTP response status code**:
+
+| HTTP  | Descrição                                                                                            |
+|:------|:-----------------------------------------------------------------------------------------------------|
+| `200` | Mensagem retornada com sucesso|
