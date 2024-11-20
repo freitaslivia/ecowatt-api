@@ -207,7 +207,7 @@ Esse token deve ser utilizado para autenticação nos endpoints protegidos. Para
 
 - **URL**:
 ```http
-http://localhost:8080/auth/register
+https://ecowatt-api.azurewebsites.net/auth/register
 ```
 - **Método**: POST
 - **Descrição**: Grava um novo usuário.
@@ -253,7 +253,7 @@ usuario criado com sucesso.
 
 - **URL**:
 ```http
-http://localhost:8080/auth/login
+https://ecowatt-api.azurewebsites.net/auth/login
 ```
 - **Método**: POST
 - **Descrição**: Realiza o login de um usuário.
@@ -300,7 +300,7 @@ http://localhost:8080/auth/login
 
 - **URL**:
 ```http
-http://localhost:8080/auth/${id}
+https://ecowatt-api.azurewebsites.net/auth/${id}
 ```
 - **Método**: PATCH
 - **Descrição**: Atualiza a senha de um usuário.
@@ -317,9 +317,9 @@ http://localhost:8080/auth/${id}
 - **Exemplo de JSON para teste**:
 ```json
 {
-  "senhaAtual": "string",
-  "senhaNova": "string",
-  "senhaConfirmacao": "string"
+  "senhaAtual": "Teste123@",
+  "senhaNova": "Teste123@@",
+  "senhaConfirmacao": "Teste123@@"
 }
 ```
 
@@ -338,7 +338,7 @@ Senha alterada com sucesso
 
 - **URL**:
 ```http
- http://localhost:8080/auth/${id}
+https://ecowatt-api.azurewebsites.net/auth/${id}
 ```
 - **Método**: GET
 - **Descrição**: Retorna dados de um usuário por id.
@@ -371,7 +371,7 @@ Senha alterada com sucesso
 
 - **URL**:
 ```http
- http://localhost:8080/auth/${id}
+https://ecowatt-api.azurewebsites.net/auth/${id}
 ```
 - **Método**: DELETE
 - **Descrição**: Deleta um usuário por id.
@@ -397,7 +397,7 @@ Senha alterada com sucesso
 
 - **URL**:
 ```http
-http://localhost:8080/sensores
+https://ecowatt-api.azurewebsites.net/sensores
 ```
 - **Método**: POST
 - **Descrição**: Grava um novo sensor.
@@ -453,7 +453,7 @@ http://localhost:8080/sensores
 
 - **URL**:
 ```http
-http://localhost:8080/sensores/${id}
+https://ecowatt-api.azurewebsites.net/sensores/${id}
 ```
 - **Método**: PUT
 - **Descrição**: Atualiza um sensor.
@@ -511,7 +511,7 @@ http://localhost:8080/sensores/${id}
 
 - **URL**:
 ```http
-http://localhost:8080/sensores/${id}
+https://ecowatt-api.azurewebsites.net/sensores/${id}
 ```
 - **Método**: GET
 - **Descrição**: Retorna dados de um sensor por id.
@@ -553,7 +553,7 @@ R
 
 - **URL**:
 ```http
-http://localhost:8080/sensores/all/${usuarioId}
+https://ecowatt-api.azurewebsites.net/sensores/all/${usuarioId}
 ```
 - **Método**: GET
 - **Descrição**: Retorna lista de sensor por id usuario.
@@ -643,7 +643,7 @@ http://localhost:8080/sensores/all/${usuarioId}
 
 - **URL**:
 ```http
- http://localhost:8080/auth/${id}
+https://ecowatt-api.azurewebsites.net/auth/${id}
 ```
 - **Método**: DELETE
 - **Descrição**: Deleta um sensor por id.
