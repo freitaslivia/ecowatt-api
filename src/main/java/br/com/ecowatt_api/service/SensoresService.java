@@ -45,28 +45,36 @@ public class SensoresService {
 
     }
     public SensoresResponseDTO update(SensoresRequestDTO sensoresRequestDto, Long idSensor) {
+
         Usuario usuario = usuarioRepository.findById(sensoresRequestDto.getUsuarioId())
                 .orElseThrow(() -> new ErrorException("Usuário não encontrado"));
+
 
         Sensores sensores = sensoresRepository.findById(idSensor)
                 .orElseThrow(() -> new ErrorException("Sensor não encontrado"));
 
-        Long idUsuario = sensores.getUsuario().getId();
-        Long idUsuarioDTO = sensoresRequestDto.getUsuarioId();
 
-        if (!idUsuarioDTO.equals(idUsuario)) {
+        if (!sensores.getUsuario().getId().equals(sensoresRequestDto.getUsuarioId())) {
             throw new ErrorException("Você não tem permissão para alterar este sensor.");
         }
 
         Sensores updatedSensor = modelMapper.map(sensoresRequestDto, Sensores.class);
+        updatedSensor.setId(sensores.getId());
         updatedSensor.setDataCriacao(sensores.getDataCriacao());
         updatedSensor.setDataModificacao(LocalDateTime.now());
 
-        sensoresRepository.save(updatedSensor);
+        sensoresRepository.updateSensorById(
+                updatedSensor.getId(),
+                updatedSensor.getTipoSensor(),
+                updatedSensor.getStatus(),
+                updatedSensor.getNomeSensor(),
+                updatedSensor.getProdutoConectado(),
+                updatedSensor.getDataModificacao()
+        );
 
         return modelMapper.map(updatedSensor, SensoresResponseDTO.class);
-
     }
+
 
 
 
