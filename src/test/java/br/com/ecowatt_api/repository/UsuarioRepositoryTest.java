@@ -37,6 +37,16 @@ class UsuarioRepositoryTest {
         assertThat(result.isPresent()).isTrue();
     }
 
+    @Test
+    @DisplayName("Não retorna o login")
+    void findByLoginFailed() {
+        String login = "paulo";
+
+        Optional<UserDetails> result = Optional.ofNullable(this.usuarioRepository.findByLogin(login));
+
+        assertThat(result.isEmpty()).isTrue();
+    }
+
     private Usuario createUser(RegisterDTO dto){
         Usuario newUser = new Usuario(dto);
         newUser.setDataCriacao(LocalDateTime.now());

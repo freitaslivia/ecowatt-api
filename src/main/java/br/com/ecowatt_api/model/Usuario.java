@@ -42,6 +42,14 @@ public class Usuario implements UserDetails {
         this.nomeCompleto = nomeCompleto;
     }
 
+    public Usuario(Long id, String login, String nomeCompleto, LocalDateTime dataCriacao, String senha) {
+        this.id = id;
+        this.login = login;
+        this.nomeCompleto = nomeCompleto;
+        this.dataCriacao = dataCriacao;
+        this.senha = senha;
+    }
+
     public Usuario(RegisterDTO dto) {
         this.login = dto.login();
         this.senha = dto.senha();
