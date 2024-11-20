@@ -14,7 +14,7 @@ public class AlterarSenhaRequestDTO {
     private String senhaAtual;
     @NotEmpty
     @Schema(description = "senha", example = "Teste123@@")
-    @Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{7,250}$")
+    @Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{7,250}$", message = "A senha deve ter: uma letra maiúscula, uma minúscula, um caracter especial, um numero e no mínimo 7 caracters no total e máximo 250")
     private String senhaNova;
     @NotEmpty
     @Schema(description = "senha", example = "Teste123@@")

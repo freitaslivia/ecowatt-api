@@ -13,7 +13,7 @@ public record RegisterDTO(
             String login,
             @NotEmpty(message = "O campo senha é obrigatório")
             @Schema(description = "senha", example = "Teste123@")
-            @Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{7,250}$")
+            @Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{7,250}$", message = "A senha deve ter: uma letra maiúscula, uma minúscula, um caracter especial, um numero e no mínimo 7 caracters no total e máximo 250")
             String senha,
             @NotEmpty(message = "O campo nome completo é obrigatório")
             @Size(max =250)

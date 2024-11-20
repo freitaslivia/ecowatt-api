@@ -1,6 +1,8 @@
 package br.com.ecowatt_api.model;
 
+import br.com.ecowatt_api.dto.RegisterDTO;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,6 +16,7 @@ import java.util.List;
 @Table(name = "ecowatt_usuario")
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 public class Usuario implements UserDetails {
@@ -39,6 +42,19 @@ public class Usuario implements UserDetails {
         this.nomeCompleto = nomeCompleto;
     }
 
+    public Usuario(Long id, String login, String nomeCompleto, LocalDateTime dataCriacao, String senha) {
+        this.id = id;
+        this.login = login;
+        this.nomeCompleto = nomeCompleto;
+        this.dataCriacao = dataCriacao;
+        this.senha = senha;
+    }
+
+    public Usuario(RegisterDTO dto) {
+        this.login = dto.login();
+        this.senha = dto.senha();
+        this.nomeCompleto = dto.nomeCompleto();
+    }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of();
