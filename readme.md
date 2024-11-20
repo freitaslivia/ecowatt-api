@@ -65,7 +65,9 @@ EcoWatt – juntos, construindo um futuro mais sustentável.
 ---
 ## Playlist com os vídeos solicitados
 
-https://www.youtube.com/playlist?list=PLnsC4Y30EcL60TdkFBJ_ukYtVQSY9gz2m
+:arrow_forward:<a href="https://www.youtube.com/playlist?list=PLnsC4Y30EcL60TdkFBJ_ukYtVQSY9gz2m">Playlist</a>
+
+
 
 ---
 ## Integrantes
@@ -139,60 +141,73 @@ Após o cadastro, você deve realizar o login (instruções para isso podem ser 
 Esse token deve ser utilizado para autenticação nos endpoints protegidos. Para inserir o token, basta acessar o botão "Authorize" na página do Swagger e colá-lo no campo correspondente. Depois disso, você estará autenticado e poderá acessar os recursos da API.
 
 
+## Link do Swagger
+
+:arrow_forward:<a href="https://ecowatt-api.azurewebsites.net/swagger-ui/index.html">SWAGGER</a>
+
+
 ## Endpoints
 
 * usuarios:
-    >POST`http://localhost:8080/auth/register`
+    >POST`https://ecowatt-api.azurewebsites.net/auth/register`
     
-    >POST`http://localhost:8080/auth/login`
+    >POST`https://ecowatt-api.azurewebsites.net/auth/login`
     
-    >GET`http://localhost:8080/auth/${id}`
+    >GET`https://ecowatt-api.azurewebsites.net/auth/${id}`
     
-    >DELETE`http://localhost:8080/auth/${id}`
+    >DELETE`https://ecowatt-api.azurewebsites.net/auth/${id}`
     
-    >PATCH`http://localhost:8080/auth/${id}`
+    >PATCH`https://ecowatt-api.azurewebsites.net/auth/${id}`
 
 * sensores:
 
-    >POST`http://localhost:8080/sensores`
+    >POST`https://ecowatt-api.azurewebsites.net/sensores`
     
-    >GET`http://localhost:8080/sensores/${id}`
+    >GET`https://ecowatt-api.azurewebsites.net/sensores/${id}`
     
-    >GET`http://localhost:8080/sensores/all/${usuarioId}`
+    >GET`https://ecowatt-api.azurewebsites.net/sensores/all/${usuarioId}`
     
-    >DELETE`http://localhost:8080/sensores/${id}`
+    >DELETE`https://ecowatt-api.azurewebsites.net/sensores/${id}`
     
-    >PUT`http://localhost:8080/sensores/${id}`
+    >PUT`https://ecowatt-api.azurewebsites.net/sensores/${id}`
 
 
 * Endpoints que todos podem ter acesso:
-    >POST`http://localhost:8080/auth/register`
-    
-    >POST`http://localhost:8080/auth/login`
+ 
+  >POST`https://ecowatt-api.azurewebsites.net/auth/register`
+
+  >POST`https://ecowatt-api.azurewebsites.net/auth/login`
+
+* Enpoint que só é possivel testar localmente:
+
+  > GET AI `http://localhost:8080/springai`
 
 * Endpoints que precisam de autenticação com token:
-    > GET Usuario`http://localhost:8080/auth/${id}`
+    > GET Usuario`https://ecowatt-api.azurewebsites.net/auth/${id}`
     
-    > DELETE Usuario`http://localhost:8080/auth/${id}`
+    > DELETE Usuario`https://ecowatt-api.azurewebsites.net/auth/${id}`
     
-    > PATCH Usuario`http://localhost:8080/auth/${id}`
+    > PATCH Usuario`https://ecowatt-api.azurewebsites.net/auth/${id}`
     
-    > POST Sensor`http://localhost:8080/sensores`
+    > POST Sensor`https://ecowatt-api.azurewebsites.net/sensores`
     
-    > GET Sensor`http://localhost:8080/sensores/${id}`
+    > GET Sensor`https://ecowatt-api.azurewebsites.net/${id}`
     
-    > GET Sensor`http://localhost:8080/sensores/all/${usuarioId}`
+    > GET Sensor`https://ecowatt-api.azurewebsites.net/sensores/all/${usuarioId}`
     
-    > DELETE Sensor`http://localhost:8080/sensores/${id}`
+    > DELETE Sensor`https://ecowatt-api.azurewebsites.net/sensores/${id}`
     
-    > PUT Sensor`http://localhost:8080/sensores/${id}`
+    > PUT Sensor`https://ecowatt-api.azurewebsites.net/sensores/${id}`
+    
+    > GET AI `http://localhost:8080/springai`
+
 
 ---
 ### Cadastro de Usuário
 
 - **URL**:
 ```http
-http://localhost:8080/auth/register
+https://ecowatt-api.azurewebsites.net/auth/register
 ```
 - **Método**: POST
 - **Descrição**: Grava um novo usuário.
@@ -238,7 +253,7 @@ usuario criado com sucesso.
 
 - **URL**:
 ```http
-http://localhost:8080/auth/login
+https://ecowatt-api.azurewebsites.net/auth/login
 ```
 - **Método**: POST
 - **Descrição**: Realiza o login de um usuário.
@@ -285,7 +300,7 @@ http://localhost:8080/auth/login
 
 - **URL**:
 ```http
-http://localhost:8080/auth/${id}
+https://ecowatt-api.azurewebsites.net/auth/${id}
 ```
 - **Método**: PATCH
 - **Descrição**: Atualiza a senha de um usuário.
@@ -323,7 +338,7 @@ Senha alterada com sucesso
 
 - **URL**:
 ```http
- http://localhost:8080/auth/${id}
+https://ecowatt-api.azurewebsites.net/auth/${id}
 ```
 - **Método**: GET
 - **Descrição**: Retorna dados de um usuário por id.
@@ -356,7 +371,7 @@ Senha alterada com sucesso
 
 - **URL**:
 ```http
- http://localhost:8080/auth/${id}
+https://ecowatt-api.azurewebsites.net/auth/${id}
 ```
 - **Método**: DELETE
 - **Descrição**: Deleta um usuário por id.
@@ -382,7 +397,7 @@ Senha alterada com sucesso
 
 - **URL**:
 ```http
-http://localhost:8080/sensores
+https://ecowatt-api.azurewebsites.net/sensores
 ```
 - **Método**: POST
 - **Descrição**: Grava um novo sensor.
@@ -438,7 +453,7 @@ http://localhost:8080/sensores
 
 - **URL**:
 ```http
-http://localhost:8080/sensores/${id}
+https://ecowatt-api.azurewebsites.net/sensores/${id}
 ```
 - **Método**: PUT
 - **Descrição**: Atualiza um sensor.
@@ -496,7 +511,7 @@ http://localhost:8080/sensores/${id}
 
 - **URL**:
 ```http
-http://localhost:8080/sensores/${id}
+https://ecowatt-api.azurewebsites.net/sensores/${id}
 ```
 - **Método**: GET
 - **Descrição**: Retorna dados de um sensor por id.
@@ -538,7 +553,7 @@ R
 
 - **URL**:
 ```http
-http://localhost:8080/sensores/all/${usuarioId}
+https://ecowatt-api.azurewebsites.net/sensores/all/${usuarioId}
 ```
 - **Método**: GET
 - **Descrição**: Retorna lista de sensor por id usuario.
@@ -628,7 +643,7 @@ http://localhost:8080/sensores/all/${usuarioId}
 
 - **URL**:
 ```http
- http://localhost:8080/auth/${id}
+https://ecowatt-api.azurewebsites.net/auth/${id}
 ```
 - **Método**: DELETE
 - **Descrição**: Deleta um sensor por id.
