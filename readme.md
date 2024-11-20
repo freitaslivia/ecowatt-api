@@ -317,9 +317,9 @@ https://ecowatt-api.azurewebsites.net/auth/${id}
 - **Exemplo de JSON para teste**:
 ```json
 {
-  "senhaAtual": "string",
-  "senhaNova": "string",
-  "senhaConfirmacao": "string"
+  "senhaAtual": "Teste123@",
+  "senhaNova": "Teste123@@",
+  "senhaConfirmacao": "Teste123@@"
 }
 ```
 
